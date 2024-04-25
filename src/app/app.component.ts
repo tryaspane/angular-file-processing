@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environtment';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-root',
@@ -49,4 +50,11 @@ export class AppComponent {
         }
       );
   }
+  generatePDF(){
+    const document = new jsPDF();
+
+    document.text('Hello Hello', 10, 10)
+    document.save()
+      
+    }  
 }
